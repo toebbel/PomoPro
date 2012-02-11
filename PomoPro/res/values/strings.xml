@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PomoPro</string>
+    
+    <!-- For Menu -->
+    <string name="settings">Settings</string>
+    <string name="quit">Quit</string>
+    <string name="history">History</string>
+    <string name="help">Help</string>
+    <string name="delete">delete History</string>
+    
+    <!-- For Main Activity and Timer -->
+    <string name="pomodoro">Pomodoro</string>
+    <string name="longBreak">Long Break</string>
+    <string name="shortBreak">Short Break</string>
+    <string name="cancel">Cancel</string>
+    <string name="canceled">canceled</string>
+    <string name="remaining">Remaining:</string>
+    <string name ="actionLabel">You\'re in a:</string>
+    
+    
+    <!-- Style -->
+    <color name="white">#FFFFFF</color>
+</resources>

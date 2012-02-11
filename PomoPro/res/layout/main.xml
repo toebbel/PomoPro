@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <!-- background image -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/tomato_big" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <!-- 3 buttons to start user activity -->
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center" 
+            android:layout_gravity="center" >
+	
+            <Button
+                android:id="@+id/btnStartPomo"
+                style="@style/defaultFont"
+                android:text="@string/pomodoro" />
+
+            <Button
+                android:id="@+id/btnLongBreak"
+                style="@style/defaultFont"
+                android:text="@string/longBreak" />
+
+            <Button
+                android:id="@+id/btnShortBreak"
+                style="@style/defaultFont"
+                android:text="@string/shortBreak" />
+        </LinearLayout>
+
+        <!-- seperator -->
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:background="#ffffff" />
+
+        <!-- history -->
+        <TextView
+            style="@style/defaultFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ListView
+            android:id="@+id/lstHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" >
+        </ListView>
+    </LinearLayout>
+
+</RelativeLayout>
