@@ -1,7 +1,6 @@
 package zeroxabc.de.pomopro;
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,17 +9,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
-
 import zeroxabc.de.pomopro.HistoryEntry.HistoryEntryType;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,9 +25,9 @@ import android.os.CountDownTimer;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /*
+ * images from
  * http://openclipart.org/detail/26082/green-checkmark-and-red-minus-by-anselmus-26082
  * http://openclipart.org/detail/72037/tomato-line-art-by-horse50
  */
@@ -66,8 +61,8 @@ public class PomoProActivity extends Activity implements OnClickListener {
 		lstHistory = (ListView) findViewById(R.id.lstHistory);
 
 		refreshHistory();
-		
-		//schedule history refresh every 30 secs
+
+		// schedule history refresh every 30 secs
 		new CountDownTimer(30000, 30000) {
 			@Override
 			public void onFinish() {
@@ -76,17 +71,18 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			}
 
 			@Override
-			public void onTick(long millisUntilFinished) {}
+			public void onTick(long millisUntilFinished) {
+			}
 		}.start();
 	}
 
 	public void onClick(View arg0) {
 		debug("onclick: " + arg0);
-		
-		if (btnPomoStart.equals(arg0) || btnShortBreakStart.equals(arg0) || btnLongBreakStart.equals(arg0)) {
+
+		if (btnPomoStart.equals(arg0) || btnShortBreakStart.equals(arg0)
+				|| btnLongBreakStart.equals(arg0)) {
 			Intent intent = new Intent(this, PomoTimer.class);
-			//intent.setAction("pomodoro");
-			if(btnShortBreakStart.equals(arg0)) {
+			if (btnShortBreakStart.equals(arg0)) {
 				debug("start short break");
 				intent.putExtra("duration", 5 * 60);
 				intent.putExtra("name", getString(R.string.shortBreak));
@@ -102,41 +98,41 @@ public class PomoProActivity extends Activity implements OnClickListener {
 				intent.putExtra("name", getString(R.string.pomodoro));
 				currentActivity = new HistoryEntry(HistoryEntryType.POMODORO);
 			}
-			
+
 			history.add(currentActivity);
 			debug("start pomotimer");
 			startActivityForResult(intent, 1);
 		}
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    getMenuInflater().inflate(R.layout.menu, menu);
-	    return super.onCreateOptionsMenu(menu);
+		getMenuInflater().inflate(R.layout.menu, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case R.id.quit:
-	        	System.exit(0);
-	            return true;
-	        case R.id.help:
-	        	Uri uriUrl = Uri.parse("http://bit.ly/pomopro");
-	        	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	        	startActivity(launchBrowser); 
-	            return true;
-	        case R.id.remove:
-	        	history = new ArrayList<HistoryEntry>();
-	        	refreshHistory();
-	            return true;
-//	        case R.id.settings:
-//	            Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show(); 
-//	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.quit:
+			System.exit(0);
+			return true;
+		case R.id.help:
+			Uri uriUrl = Uri.parse("http://bit.ly/pomopro");
+			Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+			startActivity(launchBrowser);
+			return true;
+		case R.id.remove:
+			history = new ArrayList<HistoryEntry>();
+			refreshHistory();
+			return true;
+			// case R.id.settings:
+			// Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
+			// return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	@Override
@@ -160,12 +156,14 @@ public class PomoProActivity extends Activity implements OnClickListener {
 		debug("refresh History");
 		if (history == null) {
 			restoreHistoryFromfile();
-			/*history = new ArrayList<HistoryEntry>();
-			Date now = new java.util.GregorianCalendar().getTime();
-			history.add(new HistoryEntry(HistoryEntryType.POMODORO));
-			history.get(0).finish();
-			history.get(0).setStartDate(new Date(now.getTime() - 1000 * 30));
-			history.get(0).setEndDate(new Date(now.getTime() - 1000 * 30));*/
+			/*
+			 * for debugging: history = new ArrayList<HistoryEntry>(); Date now
+			 * = new java.util.GregorianCalendar().getTime(); history.add(new
+			 * HistoryEntry(HistoryEntryType.POMODORO));
+			 * history.get(0).finish(); history.get(0).setStartDate(new
+			 * Date(now.getTime() - 1000 * 30)); history.get(0).setEndDate(new
+			 * Date(now.getTime() - 1000 * 30));
+			 */
 		}
 
 		java.util.Collections.sort(history);
@@ -176,7 +174,8 @@ public class PomoProActivity extends Activity implements OnClickListener {
 		try {
 			saveHistoryToFile();
 		} catch (IOException e) {
-			debug("exception while saving file" + e.getMessage() + " | " + e.getCause() + " | " + e.getStackTrace().toString());
+			debug("exception while saving file" + e.getMessage() + " | "
+					+ e.getCause() + " | " + e.getStackTrace().toString());
 		}
 
 		HistoryEntry[] contents = new HistoryEntry[history.size()];
@@ -195,26 +194,26 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			history = (ArrayList<HistoryEntry>) input.readObject();
 			input.close();
 		} catch (Exception e) {
-			debug("failed to restore from file: "+   e.getMessage() + " | " + e.getCause() + " | " + e.getStackTrace());
+			debug("failed to restore from file: " + e.getMessage() + " | "
+					+ e.getCause() + " | " + e.getStackTrace());
 			history = new ArrayList<HistoryEntry>();
 		}
 	}
 
 	private void saveHistoryToFile() throws IOException {
 		debug("save History to file");
-		// try {
-		FileOutputStream fos = openFileOutput(HISTORY_FILE,
-				Context.MODE_PRIVATE);
-		ObjectOutput output = new ObjectOutputStream(fos);
-		output.writeObject(history);
-		fos.close();
-		debug("saved");
-		// } catch (IOException e) { //Bad Practice <- gonna catch'em all! and
-		// do nothing :-/
-
-		// }
+		try {
+			FileOutputStream fos = openFileOutput(HISTORY_FILE,
+					Context.MODE_PRIVATE);
+			ObjectOutput output = new ObjectOutputStream(fos);
+			output.writeObject(history);
+			fos.close();
+			debug("saved");
+		} catch (IOException e) { // Bad Practice <- gonna catch'em all! and do
+									// nothing :-/
+		}
 	}
-	
+
 	private void debug(String d) {
 		android.util.Log.d(DEBUG_TAG, d);
 	}

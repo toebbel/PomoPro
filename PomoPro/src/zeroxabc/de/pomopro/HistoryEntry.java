@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class HistoryEntry implements Comparable<HistoryEntry>, Serializable {
 
+	private static final long serialVersionUID = 1770433016570143156L;
 	private HistoryEntryType _type;
 	private HistoryEntryState _state;
 	private Date _start;
@@ -81,5 +82,4 @@ public class HistoryEntry implements Comparable<HistoryEntry>, Serializable {
 	public int compareTo(HistoryEntry arg0) {
 		return arg0.getStartDate().compareTo(getStartDate());
 	}
-
 }

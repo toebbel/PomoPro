@@ -2,7 +2,6 @@ package zeroxabc.de.pomopro;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import zeroxabc.de.pomopro.HistoryEntry.HistoryEntryState;
 import android.content.Context;
 import android.view.LayoutInflater;
