@@ -1,0 +1,23 @@
+About PomoPro
+PomoPro is a small app for Android, which is dedicated to help you tracking your pomodoros. There are no disturbing features that try to take away your concentration. Just pure pomodoro-tracker.
+PomoPro is made for students, who want to learn in a library, that means, PomoPro has no features that could disturb others.
+
+
+Features of PomoPro
+The following features are integrated in PomoPro 1.0
+* Track Pomodoros and Breaks
+* Let's you decide, when to do breaks
+* Store history of last 10 actions
+* wipe history
+* Prevents screen from locking, so you always see the timer
+
+The following features are planned for further releases:
+* Blinking of screen after pomodoro/break
+* Customize times for breaks / pomodoros
+* Statistics
+
+
+About The Pomodoro Technique
+The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down periods of work into 25-minute intervals called 'Pomodoros' (from the Italian word for 'tomatoes') separated by breaks.
+
+If you want to read more about the Pomodoro Technique, read http://www.pomodorotechnique.com/
