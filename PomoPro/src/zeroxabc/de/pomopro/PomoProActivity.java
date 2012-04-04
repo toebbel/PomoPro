@@ -10,7 +10,7 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import zeroxabc.de.pomopro.HistoryEntry.HistoryEntryType;
+import zeroxabc.de.pomopro.PomodoroEvent.PomodoroEventType;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -37,8 +37,8 @@ public class PomoProActivity extends Activity implements OnClickListener {
 	protected Button btnLongBreakStart;
 	protected Button btnShortBreakStart;
 	protected ListView lstHistory;
-	protected List<HistoryEntry> history;
-	protected HistoryEntry currentActivity;
+	protected List<PomodoroEvent> history;
+	protected PomodoroEvent currentEvent;
 	public static final String PREFS_NAME = "PomoProSettings";
 	private static final String HISTORY_FILE = "history";
 	private static final String DEBUG_TAG = "PomoProMainActivity";
@@ -47,7 +47,9 @@ public class PomoProActivity extends Activity implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		debug("onCreate");
+		ResourceExpose.init(getResources());
 		setContentView(R.layout.main);
 
 		settings = getSharedPreferences(PREFS_NAME, 0);
@@ -62,7 +64,7 @@ public class PomoProActivity extends Activity implements OnClickListener {
 
 		refreshHistory();
 
-		// schedule history refresh every 30 secs
+		// schedule history refresh every 30 sec
 		new CountDownTimer(30000, 30000) {
 			@Override
 			public void onFinish() {
@@ -84,22 +86,18 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(this, PomoTimer.class);
 			if (btnShortBreakStart.equals(arg0)) {
 				debug("start short break");
-				intent.putExtra("duration", 5 * 60);
-				intent.putExtra("name", getString(R.string.shortBreak));
-				currentActivity = new HistoryEntry(HistoryEntryType.SHORT_BREAK);
+				currentEvent = new PomodoroEvent(PomodoroEventType.SHORT_BREAK, 1 * 30);//TODO set to 5 minutes
+				intent.putExtra("event", currentEvent);
 			} else if (btnLongBreakStart.equals(arg0)) {
 				debug("start long break");
-				intent.putExtra("duration", 20 * 60);
-				intent.putExtra("name", getString(R.string.longBreak));
-				currentActivity = new HistoryEntry(HistoryEntryType.LONG_BREAK);
+				currentEvent = new PomodoroEvent(PomodoroEventType.LONG_BREAK, 20 * 60);//TODO set to 5 minutes
 			} else {
 				debug("start pomodoro");
-				intent.putExtra("duration", 25 * 60);
-				intent.putExtra("name", getString(R.string.pomodoro));
-				currentActivity = new HistoryEntry(HistoryEntryType.POMODORO);
+				currentEvent = new PomodoroEvent(PomodoroEventType.POMODORO, 25 * 60);//TODO set to 5 minutes
 			}
+			intent.putExtra("event", currentEvent);
 
-			history.add(currentActivity);
+			history.add(currentEvent);
 			debug("start pomotimer");
 			startActivityForResult(intent, 1);
 		}
@@ -124,7 +122,7 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			startActivity(launchBrowser);
 			return true;
 		case R.id.remove:
-			history = new ArrayList<HistoryEntry>();
+			history = new ArrayList<PomodoroEvent>();
 			refreshHistory();
 			return true;
 			// case R.id.settings:
@@ -138,16 +136,16 @@ public class PomoProActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		debug("result...");
-		if (requestCode == 1 && currentActivity != null) {
+		if (requestCode == 1 && currentEvent != null) {
 			debug("... from timer");
 			if (resultCode == Activity.RESULT_OK) {
-				currentActivity.finish();
+				currentEvent.finish();
 				debug("user activity finished");
 			} else {
-				currentActivity.cancel();
+				currentEvent.cancel();
 				debug("user activity canceled");
 			}
-			currentActivity = null;
+			currentEvent = null;
 			refreshHistory();
 		}
 	}
@@ -178,8 +176,8 @@ public class PomoProActivity extends Activity implements OnClickListener {
 					+ e.getCause() + " | " + e.getStackTrace().toString());
 		}
 
-		HistoryEntry[] contents = new HistoryEntry[history.size()];
-		ArrayAdapter<HistoryEntry> adapter = new HistoryAdapter(this,
+		PomodoroEvent[] contents = new PomodoroEvent[history.size()];
+		ArrayAdapter<PomodoroEvent> adapter = new HistoryAdapter(this,
 				history.toArray(contents));
 		lstHistory.setAdapter(adapter);
 		debug("finisehd refreshing");
@@ -191,12 +189,12 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			InputStream file = openFileInput(HISTORY_FILE);
 			InputStream buffer = new BufferedInputStream(file);
 			ObjectInput input = new ObjectInputStream(buffer);
-			history = (ArrayList<HistoryEntry>) input.readObject();
+			history = (ArrayList<PomodoroEvent>) input.readObject();
 			input.close();
 		} catch (Exception e) {
 			debug("failed to restore from file: " + e.getMessage() + " | "
 					+ e.getCause() + " | " + e.getStackTrace());
-			history = new ArrayList<HistoryEntry>();
+			history = new ArrayList<PomodoroEvent>();
 		}
 	}
 

@@ -2,7 +2,8 @@ package zeroxabc.de.pomopro;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import zeroxabc.de.pomopro.HistoryEntry.HistoryEntryState;
+import zeroxabc.de.pomopro.PomodoroEvent.PomodoroEventState;
+import zeroxabc.de.pomopro.PomodoroEvent.PomodoroEventType;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class HistoryAdapter extends ArrayAdapter<HistoryEntry> {
+public class HistoryAdapter extends ArrayAdapter<PomodoroEvent> {
 	private static final String DEBUG_TAG = "PomoProHistoryAdapter";
 	private final Context context;
-	private final HistoryEntry[] values;
+	private final PomodoroEvent[] values;
 	
-	public HistoryAdapter(Context context, HistoryEntry[] values) {
+	public HistoryAdapter(Context context, PomodoroEvent[] values) {
 		super(context, R.layout.history_item, values);
 		this.context = context;
 		this.values = values;
@@ -33,14 +34,17 @@ public class HistoryAdapter extends ArrayAdapter<HistoryEntry> {
 		TextView txtDateInfo = (TextView) entry.findViewById(R.id.txtDateInfo);
 		ImageView imageView = (ImageView) entry.findViewById(R.id.icon);
 		
-		if(values[position].getState() == HistoryEntryState.FINISHED)
+		if(values[position].getState() == PomodoroEventState.FINISHED)
 			imageView.setImageResource(R.drawable.check);
-		else if(values[position].getState() == HistoryEntryState.ABORTED)
+		else if(values[position].getState() == PomodoroEventState.ABORTED)
 			imageView.setImageResource(R.drawable.fail);
+		
 		textView.setText(values[position].toString());
 		txtDateInfo.setText(getFriendlyDate(values[position].getEndDate()));
 		return entry;
 	}
+	
+	
 	
 	private String getFriendlyDate(Date end) {
 		if(end == null)

@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,10 +25,8 @@ public class PomoTimer extends Activity {
 	private static final String DEBUG_TAG = "PomoProTimer";
 	protected TextView txtName;
 	protected TextView txtRemaining;
-	
-	long duration;
-	long remaining;
-	String name;
+	protected PomodoroEvent event;
+	protected long remaining;
 	
 	CountDownTimer myTimer;
 	PowerManager.WakeLock wakelock;
@@ -59,20 +58,21 @@ public class PomoTimer extends Activity {
 		txtName = (TextView) findViewById(R.id.txtActionName);
 		txtRemaining = (TextView) findViewById(R.id.txtTimeRemaining);
 		
-		
 		debug("aquire wake lock");
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakelock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "PomoPro");
         wakelock.acquire();
 		
         debug("init gui");
-		name = (String) getIntent().getExtras().get("name");
-		remaining = duration = (Integer) getIntent().getExtras().get("duration") * 1000;
-		txtName.setText(getString(R.string.actionLabel) + "\n" + name);
+        assert getIntent().getExtras().get("event").getClass().equals(PomodoroEvent.class);
+        event = (PomodoroEvent) getIntent().getExtras().get("event");
+        remaining = event.getPlannedDuration();
+
+		txtName.setText(getString(R.string.actionLabel) + "\n" + event);
 		refreshTime();
 		
 		debug("starting timer");
-		myTimer = new CountDownTimer(duration, 1000) {
+		myTimer = new CountDownTimer(event.getPlannedDuration(), 1000) {
 			@Override
 			public void onFinish() {
 				finishedTimer(true);
@@ -93,6 +93,9 @@ public class PomoTimer extends Activity {
 		if(wakelock.isHeld())
 			wakelock.release();
 		if(success) {
+			Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+			v.vibrate(new long[] {200, 40}, 2);
+			
 			this.setResult(RESULT_OK);
 			this.finish();
 		} else {
