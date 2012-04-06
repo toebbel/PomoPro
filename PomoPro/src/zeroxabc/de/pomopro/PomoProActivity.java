@@ -27,6 +27,8 @@ import android.view.View.OnClickListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.widget.ArrayAdapter;
@@ -142,6 +144,7 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			debug("... from timer");
 			if (resultCode == Activity.RESULT_OK) {
 				history.getCurrentEvent().finish();
+				//blinkScreen();
 				debug("user activity finished");
 			} else {
 				history.getCurrentEvent().cancel();
@@ -149,6 +152,13 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			}
 			refreshHistory();
 		}
+	}
+	
+	private void blinkScreen() {
+		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		WakeLock wakelock = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP, "PomoProWakeUp");
+		wakelock.acquire(1000);
+		wakelock.release();
 	}
 
 	private void refreshHistory() {

@@ -22,13 +22,14 @@ public class History {
 	private static Context _c;
 	
 	private History() {
-		history = new ArrayList<PomodoroEvent>();
+		restoreHistoryFromfile();
 	}
 	
 	public static void init(Context c) {
 		if(_c == null)
 			_c = c;
-		_instance = new History();
+		if(_instance == null)
+			_instance = new History();
 	}
 	
 	public static History getInstance() {

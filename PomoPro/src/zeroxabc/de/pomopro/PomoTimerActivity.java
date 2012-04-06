@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -94,29 +95,28 @@ public class PomoTimerActivity extends Activity {
 	private void finishedTimer(boolean success) {
 		debug("finished Timer");
 		
-		Intent i = new Intent(); //send event back to creator
-		i.putExtra("event", event);
-		
 		myTimer.cancel();
 		if(success) {
-			Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-			v.vibrate(200);
-			
+			if(event.getVibrate()) {
+				Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+				v.vibrate(new long[] {0, 200, 100, 200}, -1);
+			}
 			event.finish();
-			this.setResult(RESULT_OK, i);
-			this.finish();
+			this.setResult(RESULT_OK);
 		} else {
 			event.cancel();
-			this.setResult(RESULT_CANCELED, i);
-			this.finish();
+			this.setResult(RESULT_CANCELED);
 		}
+		if(wakelock != null && wakelock.isHeld()) {
+			wakelock.release();
+		}
+		this.finish();
 	}
 	
 	@Override
-	protected void onDestroy() {
-		if(wakelock != null && wakelock.isHeld())
-			wakelock.release();
-		myTimer.cancel();
+	public void onDestroy() {
+		if(myTimer != null)
+			myTimer.cancel();
 		super.onDestroy();
 	}
 	
