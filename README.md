@@ -1,4 +1,5 @@
 PomoPro
+=======
 
 PomoPro is a small app for Android, which is dedicated to help you track your pomodros. There are no disturbing features, no complicated design or something else, that could take away your concentration. Just a pure pomodoro-tracker.
 
