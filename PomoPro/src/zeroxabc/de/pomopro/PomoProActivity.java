@@ -14,6 +14,7 @@ import java.util.List;
 import zeroxabc.de.pomopro.models.PomodoroEvent;
 import zeroxabc.de.pomopro.models.ResourceExpose;
 import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventType;
+import zeroxabc.de.pomopro.models.SettingsWrapper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -82,20 +84,20 @@ public class PomoProActivity extends Activity implements OnClickListener {
 
 	public void onClick(View arg0) {
 		debug("onclick: " + arg0);
-
+		
 		if (btnPomoStart.equals(arg0) || btnShortBreakStart.equals(arg0)
 				|| btnLongBreakStart.equals(arg0)) {
+			SettingsWrapper s = new SettingsWrapper(this); //load settings
 			Intent intent = new Intent(this, PomoTimerActivity.class);
 			if (btnShortBreakStart.equals(arg0)) {
 				debug("start short break");
-				currentEvent = new PomodoroEvent(PomodoroEventType.SHORT_BREAK, 5 * 60000, true);//TODO use Settings
-				intent.putExtra("event", currentEvent);
+				currentEvent = new PomodoroEvent(PomodoroEventType.SHORT_BREAK, s.getDurationShortBreak(), s.getVibrationSetting());
 			} else if (btnLongBreakStart.equals(arg0)) {
 				debug("start long break");
-				currentEvent = new PomodoroEvent(PomodoroEventType.LONG_BREAK, 15 * 60000, true);//TODO use settings
+				currentEvent = new PomodoroEvent(PomodoroEventType.LONG_BREAK, s.getDurationLongBreak(), s.getVibrationSetting());
 			} else {
 				debug("start pomodoro");
-				currentEvent = new PomodoroEvent(PomodoroEventType.POMODORO, 25 * 60000, true);//TODO use settings
+				currentEvent = new PomodoroEvent(PomodoroEventType.POMODORO, s.getDurationPomo(), s.getVibrationSetting());
 			}
 			intent.putExtra("event", currentEvent);
 
