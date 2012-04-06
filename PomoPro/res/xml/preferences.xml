@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android" >
+   <PreferenceCategory android:title="@string/setting_titleAlarm" android:key="alarms">
+       <CheckBoxPreference 
+           android:key="enableVibrate"
+           android:summary="@string/setting_vibrateSummary"
+           android:title="@string/setting_vibrateTitle"
+           android:defaultValue="true" />
+   </PreferenceCategory>
+   
+   <PreferenceCategory android:title="@string/setting_titleTimers" android:key="timers">
+       <ListPreference 
+           android:key="timerPomodoro"
+           android:title="@string/setting_durationPomo"
+           android:entries="@array/durationPomo"
+           android:entryValues="@array/durationPomoValues"
+           android:defaultValue="1500000" />
+       
+       <ListPreference 
+           android:key="timerShortB"
+           android:title="@string/setting_durationShortB"
+           android:entries="@array/durationShortB"
+           android:entryValues="@array/durationShortBValues"
+           android:defaultValue="300000" />
+       
+       <ListPreference 
+           android:key="timerLongB"
+           android:title="@string/setting_durationLongB"
+           android:entries="@array/durationLongB"
+           android:entryValues="@array/durationLongBValues"
+           android:defaultValue="900000" />
+   </PreferenceCategory>
+    
+</PreferenceScreen >

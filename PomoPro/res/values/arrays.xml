@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="durationPomo">
+        <item name="20">@string/min20</item>
+        <item name="21">@string/min21</item>
+        <item name="22">@string/min22</item>
+        <item name="23">@string/min23</item>
+        <item name="24">@string/min24</item>
+        <item name="25">@string/min25</item>
+        <item name="26">@string/min26</item>
+        <item name="27">@string/min27</item>
+        <item name="28">@string/min28</item>
+        <item name="29">@string/min29</item>
+        <item name="30">@string/min30</item>
+    </string-array>
+    <string-array name="durationPomoValues">
+        <item name="20">1200000</item>
+        <item name="21">1260000</item>
+        <item name="22">1320000</item>
+        <item name="23">1380000</item>
+        <item name="24">1440000</item>
+        <item name="25">1500000</item>
+        <item name="26">1560000</item>
+        <item name="27">1620000</item>
+        <item name="28">1680000</item>
+        <item name="29">1740000</item>
+        <item name="30">1800000</item>
+    </string-array>
+    
+    
+    <string-array name="durationShortB">
+        <item name="1">@string/min1</item>
+        <item name="2">@string/min2</item>
+        <item name="3">@string/min3</item>
+        <item name="4">@string/min4</item>
+        <item name="5">@string/min5</item>
+        <item name="6">@string/min6</item>
+        <item name="7">@string/min7</item>
+        <item name="8">@string/min8</item>
+        <item name="9">@string/min9</item>
+        <item name="10">@string/min10</item>
+    </string-array>
+    <string-array name="durationShortBValues">
+        <item name="1">60000</item>
+        <item name="2">120000</item>
+        <item name="3">180000</item>
+        <item name="4">2400000</item>
+        <item name="5">3000000</item>
+        <item name="6">3600000</item>
+        <item name="7">4200000</item>
+        <item name="8">4800000</item>
+        <item name="9">5400000</item>
+        <item name="10">6000000</item>
+    </string-array>
+    
+    
+    <string-array name="durationLongB">
+        <item name="10">@string/min10</item>
+        <item name="11">@string/min11</item>
+        <item name="12">@string/min12</item>
+        <item name="13">@string/min13</item>
+        <item name="14">@string/min14</item>
+        <item name="15">@string/min15</item>
+        <item name="16">@string/min16</item>
+        <item name="17">@string/min17</item>
+        <item name="18">@string/min18</item>
+        <item name="19">@string/min19</item>
+        <item name="20">@string/min20</item>
+    </string-array>
+    <string-array name="durationLongBValues">
+        <item name="10">600000</item>
+        <item name="11">660000</item>
+        <item name="12">720000</item>
+        <item name="13">780000</item>
+        <item name="14">840000</item>
+        <item name="15">900000</item>
+        <item name="16">960000</item>
+        <item name="17">720000</item>
+        <item name="18">780000</item>
+        <item name="19">840000</item>
+        <item name="20">900000</item>
+    </string-array>
+    
+</resources>
