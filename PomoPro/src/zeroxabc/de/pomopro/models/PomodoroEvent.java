@@ -15,14 +15,21 @@ public class PomodoroEvent implements Comparable<PomodoroEvent>, Serializable {
 	private Date _start;
 	private Date _end;
 	private long _plannedDuration; //in ms
+	private long _remaining; //in ms
 	private boolean _vibrate;
 
 	public PomodoroEvent(PomodoroEventType t, long duration, boolean vibrate) {
-		_state = PomodoroEventState.RUNNING;
+		_state = PomodoroEventState.PLANNED;
 		_type = t;
 		_start = java.util.GregorianCalendar.getInstance().getTime();
 		_vibrate = vibrate;
 		setPlannedDuration(duration);
+		setRemaining(duration);
+	}
+	
+	public void start() {
+		_start = java.util.GregorianCalendar.getInstance().getTime();
+		_state = PomodoroEventState.RUNNING;
 	}
 
 	
@@ -57,6 +64,23 @@ public class PomodoroEvent implements Comparable<PomodoroEvent>, Serializable {
 	public void setPlannedDuration(long _plannedDuration) {
 		this._plannedDuration = _plannedDuration;
 	}
+	
+	public void setVibrate(boolean v){
+		this._vibrate = v;
+	}
+	
+	public boolean getVibrate() {
+		return _vibrate;
+	}
+	
+	public long getRemaining() {
+		return _remaining;
+	}
+	
+	public void setRemaining(long v) {
+		assert v >= 0;
+		_remaining = v;
+	}
 
 	public void finish() {
 		_end = java.util.GregorianCalendar.getInstance().getTime();
@@ -73,7 +97,7 @@ public class PomodoroEvent implements Comparable<PomodoroEvent>, Serializable {
 	}
 
 	public enum PomodoroEventState {
-		RUNNING, FINISHED, ABORTED
+		RUNNING, FINISHED, ABORTED, PLANNED
 	}
 
 	public int compareTo(PomodoroEvent arg0) {

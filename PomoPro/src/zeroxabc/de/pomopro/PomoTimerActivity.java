@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import zeroxabc.de.pomopro.models.History;
 import zeroxabc.de.pomopro.models.PomodoroEvent;
 import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventState;
 
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.TextView.SavedState;
 import android.widget.Toast;
 
 public class PomoTimerActivity extends Activity {
@@ -28,7 +30,6 @@ public class PomoTimerActivity extends Activity {
 	private static final String DEBUG_TAG = "PomoProTimer";
 	protected TextView txtRemaining;
 	protected PomodoroEvent event;
-	protected long remaining;
 	
 	CountDownTimer myTimer;
 	PowerManager.WakeLock wakelock;
@@ -52,9 +53,13 @@ public class PomoTimerActivity extends Activity {
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	protected void onCreate(Bundle savedInstances) {
+		super.onCreate(savedInstances);
 		debug("onCreate");
+		
+		if(History.getInstance().getCurrentEvent().getState() == PomodoroEvent.PomodoroEventState.PLANNED) //onStart is called when device is rotated -> ignore method call, if there is a counting timer
+			History.getInstance().getCurrentEvent().start();
+		
 		setContentView(R.layout.pomotimer);
 	
 		txtRemaining = (TextView) findViewById(R.id.txtTimeRemaining);
@@ -65,14 +70,13 @@ public class PomoTimerActivity extends Activity {
         wakelock.acquire();
 		
         debug("init gui");
-        assert getIntent().getExtras().get("event").getClass().equals(PomodoroEvent.class);
-        event = (PomodoroEvent) getIntent().getExtras().get("event");
-        remaining = event.getPlannedDuration();
+        
+        event = History.getInstance().getCurrentEvent();
 
 		refreshTime();
 		
 		debug("starting timer");
-		myTimer = new CountDownTimer(event.getPlannedDuration(), 1000) {
+		myTimer = new CountDownTimer(event.getRemaining(), 1000) {
 			@Override
 			public void onFinish() {
 				finishedTimer(true);
@@ -80,7 +84,7 @@ public class PomoTimerActivity extends Activity {
 
 			@Override
 			public void onTick(long millisUntilFinished) {
-				remaining = millisUntilFinished;
+				event.setRemaining(millisUntilFinished);
 				refreshTime();
 			}
 		}.start();
@@ -94,8 +98,6 @@ public class PomoTimerActivity extends Activity {
 		i.putExtra("event", event);
 		
 		myTimer.cancel();
-		if(wakelock.isHeld())
-			wakelock.release();
 		if(success) {
 			Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 			v.vibrate(200);
@@ -110,10 +112,18 @@ public class PomoTimerActivity extends Activity {
 		}
 	}
 	
+	@Override
+	protected void onDestroy() {
+		if(wakelock != null && wakelock.isHeld())
+			wakelock.release();
+		myTimer.cancel();
+		super.onDestroy();
+	}
+	
 	
 	private void refreshTime() {
-		debug("redresh time");
-		Date myDate = new Date(remaining);
+		debug("refreshTime");
+		Date myDate = new Date(event.getRemaining());
 		SimpleDateFormat myDF = new SimpleDateFormat("mm:ss");
 		txtRemaining.setText(myDF.format(myDate));
 	}
