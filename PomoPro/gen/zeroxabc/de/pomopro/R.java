@@ -37,7 +37,7 @@ public final class R {
         public static final int btnLongBreak=0x7f090006;
         public static final int btnShortBreak=0x7f090007;
         public static final int btnStartPomo=0x7f090005;
-        public static final int cancelTimer=0x7f09000f;
+        public static final int cancelTimer=0x7f09000e;
         public static final int help=0x7f09000a;
         public static final int icon=0x7f090000;
         public static final int label=0x7f090001;
@@ -48,8 +48,7 @@ public final class R {
         public static final int remove=0x7f09000b;
         public static final int settings=0x7f09000c;
         public static final int txtDateInfo=0x7f090002;
-        public static final int txtTimeRemaining=0x7f09000e;
-        public static final int txtTimeRemainingLabel=0x7f09000d;
+        public static final int txtTimeRemaining=0x7f09000d;
     }
     public static final class layout {
         public static final int history_item=0x7f030000;

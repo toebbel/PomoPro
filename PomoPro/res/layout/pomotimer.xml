@@ -3,36 +3,20 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff" >
-    
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/tomato_big" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+    <TextView
+        android:id="@+id/txtTimeRemaining"
+        style="@style/defaultFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="60dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:id="@+id/txtTimeRemainingLabel"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                style="@style/defaultFont"
-                android:text="@string/remaining"
-                android:textAppearance="?android:attr/textAppearanceLarge" 
-                android:paddingTop="40dp"/>
-            
-            <TextView
-                android:id="@+id/txtTimeRemaining"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                style="@style/defaultFont"
-                android:textSize="60dp"/>
-	</LinearLayout>
 </RelativeLayout>
