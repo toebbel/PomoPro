@@ -59,22 +59,22 @@ public class HistoryAdapter extends ArrayAdapter<PomodoroEvent> {
 		long days = hours / 24;
 		
 		if(secs < 50) 
-			return "a few seconds ago";
+			return context.getString(R.string.friendlyTime_seconds);
 		
 		if (mins < 2)
-			return "a minute ago";
+			return context.getString(R.string.friendlyTime_oneMin);
 		
 		if (hours == 0)
-			return mins +  " minutes ago";
+			return context.getString(R.string.friendlyTime_minutes);
 		
 		if (days == 0)
-			return hours + " hours ago";
+			return context.getString(R.string.friendlyTime_hours);
 		
 		if (days == 1)
-			return "yesterday";
+			return context.getString(R.string.friendlyTime_yesterday);
 		
 		if (days == 2)
-			return "day before yesterday";
+			return context.getString(R.string.friendlyTime_beforeYesterday);
 		
 		SimpleDateFormat f = new SimpleDateFormat("MMM d");
 		return "on " + f.format(end);
