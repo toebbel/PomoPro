@@ -29,7 +29,7 @@ public class SettingsWrapper {
 	 * @return duration of a short break.
 	 */
 	public int getDurationShortBreak() {
-		return Integer.parseInt(sharedPrefs.getString("timerShortB", "30000"));
+		return Integer.parseInt(sharedPrefs.getString("timerShortB", "300000"));
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class SettingsWrapper {
 	 * @return duration of a long break.
 	 */
 	public int getDurationLongBreak() {
-		return Integer.parseInt(sharedPrefs.getString("timerLongB", "90000"));
+		return Integer.parseInt(sharedPrefs.getString("timerLongB", "900000"));
 	}
 	
 	/**

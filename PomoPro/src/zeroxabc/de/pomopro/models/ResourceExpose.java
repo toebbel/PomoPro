@@ -32,8 +32,6 @@ public class ResourceExpose {
 		if(r == null) {
 			r = c.getResources();
 		}
-		else
-			throw new IllegalStateException("Resources are already exposed");
 	}
 	
 	/**
