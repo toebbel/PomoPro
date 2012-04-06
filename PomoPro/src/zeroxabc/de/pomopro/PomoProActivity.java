@@ -10,7 +10,10 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import zeroxabc.de.pomopro.PomodoroEvent.PomodoroEventType;
+
+import zeroxabc.de.pomopro.models.PomodoroEvent;
+import zeroxabc.de.pomopro.models.ResourceExpose;
+import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventType;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -39,20 +43,18 @@ public class PomoProActivity extends Activity implements OnClickListener {
 	protected ListView lstHistory;
 	protected List<PomodoroEvent> history;
 	protected PomodoroEvent currentEvent;
-	public static final String PREFS_NAME = "PomoProSettings";
 	private static final String HISTORY_FILE = "history";
 	private static final String DEBUG_TAG = "PomoProMainActivity";
-	SharedPreferences settings;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		debug("onCreate");
-		ResourceExpose.init(getResources());
+		ResourceExpose.init(this);
+		
 		setContentView(R.layout.main);
-
-		settings = getSharedPreferences(PREFS_NAME, 0);
 
 		btnPomoStart = (Button) findViewById(R.id.btnStartPomo);
 		btnPomoStart.setOnClickListener(this);
@@ -83,17 +85,17 @@ public class PomoProActivity extends Activity implements OnClickListener {
 
 		if (btnPomoStart.equals(arg0) || btnShortBreakStart.equals(arg0)
 				|| btnLongBreakStart.equals(arg0)) {
-			Intent intent = new Intent(this, PomoTimer.class);
+			Intent intent = new Intent(this, PomoTimerActivity.class);
 			if (btnShortBreakStart.equals(arg0)) {
 				debug("start short break");
-				currentEvent = new PomodoroEvent(PomodoroEventType.SHORT_BREAK, 1 * 30);//TODO set to 5 minutes
+				currentEvent = new PomodoroEvent(PomodoroEventType.SHORT_BREAK, 5 * 60000, true);//TODO use Settings
 				intent.putExtra("event", currentEvent);
 			} else if (btnLongBreakStart.equals(arg0)) {
 				debug("start long break");
-				currentEvent = new PomodoroEvent(PomodoroEventType.LONG_BREAK, 20 * 60);//TODO set to 5 minutes
+				currentEvent = new PomodoroEvent(PomodoroEventType.LONG_BREAK, 15 * 60000, true);//TODO use settings
 			} else {
 				debug("start pomodoro");
-				currentEvent = new PomodoroEvent(PomodoroEventType.POMODORO, 25 * 60);//TODO set to 5 minutes
+				currentEvent = new PomodoroEvent(PomodoroEventType.POMODORO, 25 * 60000, true);//TODO use settings
 			}
 			intent.putExtra("event", currentEvent);
 
@@ -118,16 +120,14 @@ public class PomoProActivity extends Activity implements OnClickListener {
 			return true;
 		case R.id.help:
 			Uri uriUrl = Uri.parse("http://bit.ly/pomopro");
-			Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-			startActivity(launchBrowser);
+			startActivity(new Intent(Intent.ACTION_VIEW, uriUrl));
 			return true;
 		case R.id.remove:
 			history = new ArrayList<PomodoroEvent>();
 			refreshHistory();
 			return true;
-			// case R.id.settings:
-			// Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
-			// return true;
+		case R.id.settings:
+			startActivity(new Intent(this, SettingsActivity.class));
 		default:
 			return super.onOptionsItemSelected(item);
 		}

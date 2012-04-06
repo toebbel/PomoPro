@@ -8,12 +8,20 @@
 package zeroxabc.de.pomopro;
 
 public final class R {
+    public static final class array {
+        public static final int durationLongB=0x7f050004;
+        public static final int durationLongBValues=0x7f050005;
+        public static final int durationPomo=0x7f050000;
+        public static final int durationPomoValues=0x7f050001;
+        public static final int durationShortB=0x7f050002;
+        public static final int durationShortBValues=0x7f050003;
+    }
     public static final class attr {
     }
     public static final class color {
         /**  Style 
          */
-        public static final int white=0x7f050000;
+        public static final int white=0x7f070000;
     }
     public static final class drawable {
         public static final int check=0x7f020000;
@@ -26,22 +34,22 @@ public final class R {
         public static final int tomato_big=0x7f020007;
     }
     public static final class id {
-        public static final int btnLongBreak=0x7f070006;
-        public static final int btnShortBreak=0x7f070007;
-        public static final int btnStartPomo=0x7f070005;
-        public static final int cancelTimer=0x7f07000f;
-        public static final int help=0x7f07000a;
-        public static final int icon=0x7f070000;
-        public static final int label=0x7f070001;
-        public static final int linearLayout1=0x7f070003;
-        public static final int linearLayout2=0x7f070004;
-        public static final int lstHistory=0x7f070008;
-        public static final int quit=0x7f070009;
-        public static final int remove=0x7f07000b;
-        public static final int txtActionName=0x7f07000c;
-        public static final int txtDateInfo=0x7f070002;
-        public static final int txtTimeRemaining=0x7f07000e;
-        public static final int txtTimeRemainingLabel=0x7f07000d;
+        public static final int btnLongBreak=0x7f090006;
+        public static final int btnShortBreak=0x7f090007;
+        public static final int btnStartPomo=0x7f090005;
+        public static final int cancelTimer=0x7f09000f;
+        public static final int help=0x7f09000a;
+        public static final int icon=0x7f090000;
+        public static final int label=0x7f090001;
+        public static final int linearLayout1=0x7f090003;
+        public static final int linearLayout2=0x7f090004;
+        public static final int lstHistory=0x7f090008;
+        public static final int quit=0x7f090009;
+        public static final int remove=0x7f09000b;
+        public static final int settings=0x7f09000c;
+        public static final int txtDateInfo=0x7f090002;
+        public static final int txtTimeRemaining=0x7f09000e;
+        public static final int txtTimeRemainingLabel=0x7f09000d;
     }
     public static final class layout {
         public static final int history_item=0x7f030000;
@@ -51,25 +59,66 @@ public final class R {
         public static final int time_menu=0x7f030004;
     }
     public static final class string {
-        public static final int actionLabel=0x7f04000c;
-        public static final int app_name=0x7f040000;
-        public static final int cancel=0x7f040009;
-        public static final int canceled=0x7f04000a;
-        public static final int delete=0x7f040005;
-        public static final int help=0x7f040004;
-        public static final int history=0x7f040003;
-        public static final int longBreak=0x7f040007;
+        public static final int app_name=0x7f060000;
+        public static final int cancel=0x7f060009;
+        public static final int canceled=0x7f06000a;
+        public static final int delete=0x7f060004;
+        public static final int help=0x7f060003;
         /**  For Main Activity and Timer 
          */
-        public static final int pomodoro=0x7f040006;
-        public static final int quit=0x7f040002;
-        public static final int remaining=0x7f04000b;
+        public static final int history=0x7f060005;
+        public static final int longBreak=0x7f060007;
+        public static final int min1=0x7f060013;
+        public static final int min10=0x7f06001c;
+        public static final int min11=0x7f06001d;
+        public static final int min12=0x7f06001e;
+        public static final int min13=0x7f06001f;
+        public static final int min14=0x7f060020;
+        public static final int min15=0x7f060021;
+        public static final int min16=0x7f060022;
+        public static final int min17=0x7f060023;
+        public static final int min18=0x7f060024;
+        public static final int min19=0x7f060025;
+        public static final int min2=0x7f060014;
+        public static final int min20=0x7f060026;
+        public static final int min21=0x7f060027;
+        public static final int min22=0x7f060028;
+        public static final int min23=0x7f060029;
+        public static final int min24=0x7f06002a;
+        public static final int min25=0x7f06002b;
+        public static final int min26=0x7f06002c;
+        public static final int min27=0x7f06002d;
+        public static final int min28=0x7f06002e;
+        public static final int min29=0x7f06002f;
+        public static final int min3=0x7f060015;
+        public static final int min30=0x7f060030;
+        public static final int min4=0x7f060016;
+        public static final int min5=0x7f060017;
+        public static final int min6=0x7f060018;
+        public static final int min7=0x7f060019;
+        public static final int min8=0x7f06001a;
+        public static final int min9=0x7f06001b;
+        public static final int pomodoro=0x7f060006;
+        public static final int quit=0x7f060002;
+        public static final int remaining=0x7f06000b;
+        public static final int setting_durationLongB=0x7f060010;
+        public static final int setting_durationPomo=0x7f06000e;
+        public static final int setting_durationShortB=0x7f06000f;
+        /**  For Settings 
+         */
+        public static final int setting_titleAlarm=0x7f06000c;
+        public static final int setting_titleTimers=0x7f06000d;
+        public static final int setting_vibrateSummary=0x7f060011;
+        public static final int setting_vibrateTitle=0x7f060012;
         /**  For Menu 
          */
-        public static final int settings=0x7f040001;
-        public static final int shortBreak=0x7f040008;
+        public static final int settings=0x7f060001;
+        public static final int shortBreak=0x7f060008;
     }
     public static final class style {
-        public static final int defaultFont=0x7f060000;
+        public static final int defaultFont=0x7f080000;
+    }
+    public static final class xml {
+        public static final int preferences=0x7f040000;
     }
 }

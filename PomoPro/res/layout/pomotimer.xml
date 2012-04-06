@@ -16,15 +16,6 @@
             android:orientation="vertical" >
 
             <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/txtActionName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                style="@style/defaultFont"
-                android:textSize="60dp" />
-
-            <TextView
                 android:id="@+id/txtTimeRemainingLabel"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"

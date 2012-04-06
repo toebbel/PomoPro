@@ -5,20 +5,58 @@
     <!-- For Menu -->
     <string name="settings">Settings</string>
     <string name="quit">Quit</string>
-    <string name="history">History</string>
     <string name="help">Help</string>
     <string name="delete">delete History</string>
     
     <!-- For Main Activity and Timer -->
+    <string name="history">History</string>
     <string name="pomodoro">Pomodoro</string>
     <string name="longBreak">Long Break</string>
     <string name="shortBreak">Short Break</string>
     <string name="cancel">Cancel</string>
     <string name="canceled">canceled</string>
     <string name="remaining">Remaining:</string>
-    <string name ="actionLabel">You\'re in a:</string>
+
     
-    
+    <!-- For Settings -->
+    <string name="setting_titleAlarm">Alarm Settings</string>
+    <string name="setting_titleTimers">Timers</string>
+    <string name="setting_durationPomo">Duration Pomodoro</string>
+    <string name="setting_durationShortB">Duration short break</string>
+    <string name="setting_durationLongB">Duration long break</string>
+
+    <string name="setting_vibrateSummary">Vibrate after each break and Pomodoro?</string>
+    <string name="setting_vibrateTitle">Vibrate</string>
+	<string name="min1">1 minute</string>
+    <string name="min2">2 minutes</string>
+    <string name="min3">3 minutes</string>
+    <string name="min4">4 minutes</string>
+    <string name="min5">5 minutes</string>
+    <string name="min6">6 minutes</string>
+    <string name="min7">7 minutes</string>
+    <string name="min8">8 minutes</string>
+    <string name="min9">9 minutes</string>
+    <string name="min10">10 minutes</string>
+    <string name="min11">11 minutes</string>
+    <string name="min12">12 minutes</string>
+    <string name="min13">13 minutes</string>
+    <string name="min14">14 minutes</string>
+    <string name="min15">15 minutes</string>
+    <string name="min16">16 minutes</string>
+    <string name="min17">17 minutes</string>
+    <string name="min18">18 minutes</string>
+    <string name="min19">19 minutes</string>
+    <string name="min20">20 minutes</string>
+    <string name="min21">21 minutes</string>
+    <string name="min22">22 minutes</string>
+    <string name="min23">23 minutes</string>
+    <string name="min24">24 minutes</string>
+    <string name="min25">25 minutes</string>
+    <string name="min26">26 minutes</string>
+    <string name="min27">27 minutes</string>
+    <string name="min28">28 minutes</string>
+    <string name="min29">29 minutes</string>
+    <string name="min30">30 minutes</string>
     <!-- Style -->
     <color name="white">#FFFFFF</color>
 </resources>
