@@ -1,4 +1,4 @@
-package zeroxabc.de.pomopro.models;
+package de.zeroxabc.pomopro.models;
 
 import android.content.Context;
 import android.content.SharedPreferences;

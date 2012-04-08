@@ -1,4 +1,4 @@
-package zeroxabc.de.pomopro.models;
+package de.zeroxabc.pomopro.models;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;

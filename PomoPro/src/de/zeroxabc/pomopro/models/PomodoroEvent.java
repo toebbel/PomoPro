@@ -1,10 +1,11 @@
-package zeroxabc.de.pomopro.models;
+package de.zeroxabc.pomopro.models;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import zeroxabc.de.pomopro.R;
-import zeroxabc.de.pomopro.R.string;
+import de.zeroxabc.pomopro.R;
+import de.zeroxabc.pomopro.R.string;
+
 
 
 public class PomodoroEvent implements Comparable<PomodoroEvent>, Serializable {

@@ -1,4 +1,4 @@
-package zeroxabc.de.pomopro;
+package de.zeroxabc.pomopro;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
@@ -11,11 +11,13 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import zeroxabc.de.pomopro.models.History;
-import zeroxabc.de.pomopro.models.PomodoroEvent;
-import zeroxabc.de.pomopro.models.ResourceExpose;
-import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventType;
-import zeroxabc.de.pomopro.models.SettingsWrapper;
+import de.zeroxabc.pomopro.R;
+import de.zeroxabc.pomopro.models.History;
+import de.zeroxabc.pomopro.models.PomodoroEvent;
+import de.zeroxabc.pomopro.models.ResourceExpose;
+import de.zeroxabc.pomopro.models.SettingsWrapper;
+import de.zeroxabc.pomopro.models.PomodoroEvent.PomodoroEventType;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -40,7 +42,7 @@ import android.widget.ListView;
  * http://openclipart.org/detail/26082/green-checkmark-and-red-minus-by-anselmus-26082
  * http://openclipart.org/detail/72037/tomato-line-art-by-horse50
  */
-public class PomoProActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
 	protected Button btnPomoStart;
 	protected Button btnLongBreakStart;
@@ -91,7 +93,7 @@ public class PomoProActivity extends Activity implements OnClickListener {
 		if (btnPomoStart.equals(arg0) || btnShortBreakStart.equals(arg0)
 				|| btnLongBreakStart.equals(arg0)) {
 			SettingsWrapper s = new SettingsWrapper(this); //load settings
-			Intent intent = new Intent(this, PomoTimerActivity.class);
+			Intent intent = new Intent(this, TimerActivity.class);
 			if (btnShortBreakStart.equals(arg0)) {
 				debug("start short break");
 				history.addEvent(new PomodoroEvent(PomodoroEventType.SHORT_BREAK, s.getDurationShortBreak(), s.getVibrationSetting()));
@@ -111,7 +113,7 @@ public class PomoProActivity extends Activity implements OnClickListener {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.layout.menu, menu);
+		getMenuInflater().inflate(R.layout.main_menu, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 

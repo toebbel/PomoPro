@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package zeroxabc.de.pomopro;
+package de.zeroxabc.pomopro;
 
 public final class R {
     public static final class array {
@@ -53,9 +53,9 @@ public final class R {
     public static final class layout {
         public static final int history_item=0x7f030000;
         public static final int main=0x7f030001;
-        public static final int menu=0x7f030002;
-        public static final int pomotimer=0x7f030003;
-        public static final int time_menu=0x7f030004;
+        public static final int main_menu=0x7f030002;
+        public static final int timer=0x7f030003;
+        public static final int timer_menu=0x7f030004;
     }
     public static final class string {
         public static final int app_name=0x7f060000;

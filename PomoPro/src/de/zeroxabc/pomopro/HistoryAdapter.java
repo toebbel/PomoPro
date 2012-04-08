@@ -1,11 +1,13 @@
-package zeroxabc.de.pomopro;
+package de.zeroxabc.pomopro;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import zeroxabc.de.pomopro.models.PomodoroEvent;
-import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventState;
-import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventType;
+import de.zeroxabc.pomopro.R;
+import de.zeroxabc.pomopro.models.PomodoroEvent;
+import de.zeroxabc.pomopro.models.PomodoroEvent.PomodoroEventState;
+import de.zeroxabc.pomopro.models.PomodoroEvent.PomodoroEventType;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

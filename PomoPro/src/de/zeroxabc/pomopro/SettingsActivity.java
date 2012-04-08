@@ -1,5 +1,6 @@
-package zeroxabc.de.pomopro;
+package de.zeroxabc.pomopro;
 
+import de.zeroxabc.pomopro.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

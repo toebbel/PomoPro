@@ -1,12 +1,14 @@
-package zeroxabc.de.pomopro;
+package de.zeroxabc.pomopro;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import zeroxabc.de.pomopro.models.History;
-import zeroxabc.de.pomopro.models.PomodoroEvent;
-import zeroxabc.de.pomopro.models.PomodoroEvent.PomodoroEventState;
+import de.zeroxabc.pomopro.R;
+import de.zeroxabc.pomopro.models.History;
+import de.zeroxabc.pomopro.models.PomodoroEvent;
+import de.zeroxabc.pomopro.models.PomodoroEvent.PomodoroEventState;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +28,7 @@ import android.widget.TextView;
 import android.widget.TextView.SavedState;
 import android.widget.Toast;
 
-public class PomoTimerActivity extends Activity {
+public class TimerActivity extends Activity {
 
 	private static final String DEBUG_TAG = "PomoProTimer";
 	protected TextView txtRemaining;
@@ -37,7 +39,7 @@ public class PomoTimerActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    getMenuInflater().inflate(R.layout.time_menu, menu);
+	    getMenuInflater().inflate(R.layout.timer_menu, menu);
 	    return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -61,7 +63,7 @@ public class PomoTimerActivity extends Activity {
 		if(History.getInstance().getCurrentEvent().getState() == PomodoroEvent.PomodoroEventState.PLANNED) //onStart is called when device is rotated -> ignore method call, if there is a counting timer
 			History.getInstance().getCurrentEvent().start();
 		
-		setContentView(R.layout.pomotimer);
+		setContentView(R.layout.timer);
 	
 		txtRemaining = (TextView) findViewById(R.id.txtTimeRemaining);
 		
