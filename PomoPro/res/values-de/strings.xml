@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- For Menu -->
+    <string name="settings">Einstellungen</string>
+    <string name="quit">Schließen</string>
+    <string name="help">Hilfe</string>
+    <string name="delete">History löschen</string>
+    
+    <!-- For Main Activity and Timer -->
+    <string name="history">History</string>
+    <string name="pomodoro">Pomodoro</string>
+    <string name="longBreak">lange Pause</string>
+    <string name="shortBreak">kurze Pause</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="canceled">abgebrochen</string>
+
+    <!-- For friendly time -->
+    <string name="friendlyTime_seconds">vor ein paar Sekunden</string>
+    <string name="friendlyTime_oneMin">vor ca. einer Minute</string>
+    <string name="friendlyTime_Minuten">vor ein paar Minuten</string>
+    <string name="friendlyTime_hours">vor ein paar Stunden</string>
+	<string name="friendlyTime_yesterday">Gestern</string>
+	<string name="friendlyTime_beforeYesterday">Vorgestern</string>    
+
+    
+    <!-- For Settings -->
+    <string name="setting_titleAlarm">Alarm-Einstellungen</string>
+    <string name="setting_titleTimers">Zeiten</string>
+    <string name="setting_durationPomo">Dauer 'Pomodoro'</string>
+    <string name="setting_durationShortB">Dauer 'kurze Pause'</string>
+    <string name="setting_durationLongB">Duration 'lange Pause'</string>
+
+    <string name="setting_vibrateSummary">Nach jedem Pomodoro vibrieren?</string>
+    <string name="setting_vibrateTitle">Vibrieren</string>
+	<string name="min1">1 Minute</string>
+    <string name="min2">2 Minuten</string>
+    <string name="min3">3 Minuten</string>
+    <string name="min4">4 Minuten</string>
+    <string name="min5">5 Minuten</string>
+    <string name="min6">6 Minuten</string>
+    <string name="min7">7 Minuten</string>
+    <string name="min8">8 Minuten</string>
+    <string name="min9">9 Minuten</string>
+    <string name="min10">10 Minuten</string>
+    <string name="min11">11 Minuten</string>
+    <string name="min12">12 Minuten</string>
+    <string name="min13">13 Minuten</string>
+    <string name="min14">14 Minuten</string>
+    <string name="min15">15 Minuten</string>
+    <string name="min16">16 Minuten</string>
+    <string name="min17">17 Minuten</string>
+    <string name="min18">18 Minuten</string>
+    <string name="min19">19 Minuten</string>
+    <string name="min20">20 Minuten</string>
+    <string name="min21">21 Minuten</string>
+    <string name="min22">22 Minuten</string>
+    <string name="min23">23 Minuten</string>
+    <string name="min24">24 Minuten</string>
+    <string name="min25">25 Minuten</string>
+    <string name="min26">26 Minuten</string>
+    <string name="min27">27 Minuten</string>
+    <string name="min28">28 Minuten</string>
+    <string name="min29">29 Minuten</string>
+    <string name="min30">30 Minuten</string>
+</resources>
