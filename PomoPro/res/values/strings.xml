@@ -15,7 +15,6 @@
     <string name="shortBreak">Short Break</string>
     <string name="cancel">Cancel</string>
     <string name="canceled">canceled</string>
-    <string name="remaining">Remaining:</string>
 
     <!-- For friendly time -->
     <string name="friendlyTime_seconds">a few seconds ago</string>
