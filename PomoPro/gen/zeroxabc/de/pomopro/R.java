@@ -62,62 +62,80 @@ public final class R {
         public static final int cancel=0x7f060009;
         public static final int canceled=0x7f06000a;
         public static final int delete=0x7f060004;
-        public static final int friendlyTime_beforeYesterday=0x7f060011;
-        public static final int friendlyTime_hours=0x7f06000f;
-        public static final int friendlyTime_minutes=0x7f06000e;
-        public static final int friendlyTime_oneMin=0x7f06000d;
-        /**  For friendly time 
+        public static final int friendlyTime_Minuten=0x7f060036;
+        public static final int friendlyTime_beforeYesterday=0x7f060010;
+        /**  //TODO 
          */
-        public static final int friendlyTime_seconds=0x7f06000c;
-        public static final int friendlyTime_yesterday=0x7f060010;
+        public static final int friendlyTime_hours=0x7f06000e;
+        /**  //TODO 
+         */
+        public static final int friendlyTime_minuter=0x7f060037;
+        public static final int friendlyTime_minutes=0x7f06000d;
+        /**  //TODO 
+         */
+        public static final int friendlyTime_oneMin=0x7f06000c;
+        /**  For friendly time 
+ For friendly time 
+ this is not past 
+ For friendly time 
+         */
+        public static final int friendlyTime_seconds=0x7f06000b;
+        /**  //TODO 
+         */
+        public static final int friendlyTime_yesterday=0x7f06000f;
         public static final int help=0x7f060003;
         /**  For Main Activity and Timer 
+ For Main Activity and Timer 
+ For Main Activity and Timer 
          */
         public static final int history=0x7f060005;
         public static final int longBreak=0x7f060007;
-        public static final int min1=0x7f060019;
-        public static final int min10=0x7f060022;
-        public static final int min11=0x7f060023;
-        public static final int min12=0x7f060024;
-        public static final int min13=0x7f060025;
-        public static final int min14=0x7f060026;
-        public static final int min15=0x7f060027;
-        public static final int min16=0x7f060028;
-        public static final int min17=0x7f060029;
-        public static final int min18=0x7f06002a;
-        public static final int min19=0x7f06002b;
-        public static final int min2=0x7f06001a;
-        public static final int min20=0x7f06002c;
-        public static final int min21=0x7f06002d;
-        public static final int min22=0x7f06002e;
-        public static final int min23=0x7f06002f;
-        public static final int min24=0x7f060030;
-        public static final int min25=0x7f060031;
-        public static final int min26=0x7f060032;
-        public static final int min27=0x7f060033;
-        public static final int min28=0x7f060034;
-        public static final int min29=0x7f060035;
-        public static final int min3=0x7f06001b;
-        public static final int min30=0x7f060036;
-        public static final int min4=0x7f06001c;
-        public static final int min5=0x7f06001d;
-        public static final int min6=0x7f06001e;
-        public static final int min7=0x7f06001f;
-        public static final int min8=0x7f060020;
-        public static final int min9=0x7f060021;
+        public static final int min1=0x7f060018;
+        public static final int min10=0x7f060021;
+        public static final int min11=0x7f060022;
+        public static final int min12=0x7f060023;
+        public static final int min13=0x7f060024;
+        public static final int min14=0x7f060025;
+        public static final int min15=0x7f060026;
+        public static final int min16=0x7f060027;
+        public static final int min17=0x7f060028;
+        public static final int min18=0x7f060029;
+        public static final int min19=0x7f06002a;
+        public static final int min2=0x7f060019;
+        public static final int min20=0x7f06002b;
+        public static final int min21=0x7f06002c;
+        public static final int min22=0x7f06002d;
+        public static final int min23=0x7f06002e;
+        public static final int min24=0x7f06002f;
+        public static final int min25=0x7f060030;
+        public static final int min26=0x7f060031;
+        public static final int min27=0x7f060032;
+        public static final int min28=0x7f060033;
+        public static final int min29=0x7f060034;
+        public static final int min3=0x7f06001a;
+        public static final int min30=0x7f060035;
+        public static final int min4=0x7f06001b;
+        public static final int min5=0x7f06001c;
+        public static final int min6=0x7f06001d;
+        public static final int min7=0x7f06001e;
+        public static final int min8=0x7f06001f;
+        public static final int min9=0x7f060020;
         public static final int pomodoro=0x7f060006;
         public static final int quit=0x7f060002;
-        public static final int remaining=0x7f06000b;
-        public static final int setting_durationLongB=0x7f060016;
-        public static final int setting_durationPomo=0x7f060014;
-        public static final int setting_durationShortB=0x7f060015;
+        public static final int setting_durationLongB=0x7f060015;
+        public static final int setting_durationPomo=0x7f060013;
+        public static final int setting_durationShortB=0x7f060014;
         /**  For Settings 
+ For Settings 
+ For Settings 
          */
-        public static final int setting_titleAlarm=0x7f060012;
-        public static final int setting_titleTimers=0x7f060013;
-        public static final int setting_vibrateSummary=0x7f060017;
-        public static final int setting_vibrateTitle=0x7f060018;
+        public static final int setting_titleAlarm=0x7f060011;
+        public static final int setting_titleTimers=0x7f060012;
+        public static final int setting_vibrateSummary=0x7f060016;
+        public static final int setting_vibrateTitle=0x7f060017;
         /**  For Menu 
+ For Menu 
+ For Menu 
          */
         public static final int settings=0x7f060001;
         public static final int shortBreak=0x7f060008;

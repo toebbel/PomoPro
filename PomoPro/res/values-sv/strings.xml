@@ -26,11 +26,11 @@
     <!-- For Settings -->
     <string name="setting_titleAlarm">Alarm Attityden</string>
     <string name="setting_titleTimers">tids</string>
-    <string name="setting_durationPomo">ta 'Pomodoro'</string>
-    <string name="setting_durationShortB">ta 'kort paus'</string>
-    <string name="setting_durationLongB">ta 'länge paus'</string>
+    <string name="setting_durationPomo">ta \'Pomodoro\'</string>
+    <string name="setting_durationShortB">ta \'kort paus\'</string>
+    <string name="setting_durationLongB">ta \'länge paus\'</string>
 
-    <string name="setting_vibrateSummary">Dallra efter all 'Pomodoro'?</string>
+    <string name="setting_vibrateSummary">Dallra efter all \'Pomodoro\'?</string>
     <string name="setting_vibrateTitle">Dallar</string>
 	<string name="min1">1 minut</string>
     <string name="min2">2 minuter</string>

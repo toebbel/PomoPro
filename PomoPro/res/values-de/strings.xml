@@ -26,9 +26,9 @@
     <!-- For Settings -->
     <string name="setting_titleAlarm">Alarm-Einstellungen</string>
     <string name="setting_titleTimers">Zeiten</string>
-    <string name="setting_durationPomo">Dauer 'Pomodoro'</string>
-    <string name="setting_durationShortB">Dauer 'kurze Pause'</string>
-    <string name="setting_durationLongB">Duration 'lange Pause'</string>
+    <string name="setting_durationPomo">Dauer \'Pomodoro\'</string>
+    <string name="setting_durationShortB">Dauer \'kurze Pause\'</string>
+    <string name="setting_durationLongB">Duration \'lange Pause \'</string>
 
     <string name="setting_vibrateSummary">Nach jedem Pomodoro vibrieren?</string>
     <string name="setting_vibrateTitle">Vibrieren</string>
