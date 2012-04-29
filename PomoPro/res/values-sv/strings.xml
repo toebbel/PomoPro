@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+    <!-- For Menu -->
+    <string name="settings">attityden</string>
+    <string name="quit">sluta</string>
+    <string name="help">hjälp</string>
+    <string name="delete">släcka History</string>
+    
+    <!-- For Main Activity and Timer -->
+    <string name="history">History</string>
+    <string name="pomodoro">Pomodoro</string>
+    <string name="longBreak">länge paus</string>
+    <string name="shortBreak">kort paus</string>
+    <string name="cancel">avbryta</string>
+    <string name="canceled">avbryta</string> <!-- this is not past -->
+
+    <!-- For friendly time -->
+    <string name="friendlyTime_seconds">a few seconds ago</string><!-- //TODO -->
+    <string name="friendlyTime_oneMin">a minute ago</string><!-- //TODO -->
+    <string name="friendlyTime_minuter">minuter ago</string><!-- //TODO -->
+    <string name="friendlyTime_hours">hours ago</string><!-- //TODO -->
+	<string name="friendlyTime_yesterday">igår</string>
+	<string name="friendlyTime_beforeYesterday">i förrgår</string>
+
+    
+    <!-- For Settings -->
+    <string name="setting_titleAlarm">Alarm Attityden</string>
+    <string name="setting_titleTimers">tids</string>
+    <string name="setting_durationPomo">ta \'Pomodoro\'</string>
+    <string name="setting_durationShortB">ta \'kort paus\'</string>
+    <string name="setting_durationLongB">ta \'länge paus\'</string>
+
+    <string name="setting_vibrateSummary">Dallra efter all \'Pomodoro\'?</string>
+    <string name="setting_vibrateTitle">Dallar</string>
+	<string name="min1">1 minut</string>
+    <string name="min2">2 minuter</string>
+    <string name="min3">3 minuter</string>
+    <string name="min4">4 minuter</string>
+    <string name="min5">5 minuter</string>
+    <string name="min6">6 minuter</string>
+    <string name="min7">7 minuter</string>
+    <string name="min8">8 minuter</string>
+    <string name="min9">9 minuter</string>
+    <string name="min10">10 minuter</string>
+    <string name="min11">11 minuter</string>
+    <string name="min12">12 minuter</string>
+    <string name="min13">13 minuter</string>
+    <string name="min14">14 minuter</string>
+    <string name="min15">15 minuter</string>
+    <string name="min16">16 minuter</string>
+    <string name="min17">17 minuter</string>
+    <string name="min18">18 minuter</string>
+    <string name="min19">19 minuter</string>
+    <string name="min20">20 minuter</string>
+    <string name="min21">21 minuter</string>
+    <string name="min22">22 minuter</string>
+    <string name="min23">23 minuter</string>
+    <string name="min24">24 minuter</string>
+    <string name="min25">25 minuter</string>
+    <string name="min26">26 minuter</string>
+    <string name="min27">27 minuter</string>
+    <string name="min28">28 minuter</string>
+    <string name="min29">29 minuter</string>
+    <string name="min30">30 minuter</string>
+</resources>

@@ -19,8 +19,8 @@
     <!-- For friendly time -->
     <string name="friendlyTime_seconds">a few seconds ago</string>
     <string name="friendlyTime_oneMin">a minute ago</string>
-    <string name="friendlyTime_minutes">minutes ago"</string>
-    <string name="friendlyTime_hours">hours ago"</string>
+    <string name="friendlyTime_minutes">minutes ago</string>
+    <string name="friendlyTime_hours">hours ago</string>
 	<string name="friendlyTime_yesterday">yesterday</string>
 	<string name="friendlyTime_beforeYesterday">day before yesterday</string>    
 
