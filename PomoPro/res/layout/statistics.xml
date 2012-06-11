@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+     <TextView android:text="Today"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+     
+     <TextView android:text="Pomodoros: 12 (2:40)"
+         android:id="@+id/statsNumPomodoros"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textColor="#ffffff" />
+     
+     <TextView android:text="Breaks: 4 / 2 (25)"
+         android:id="@+id/statsNumBreaks"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" 
+         android:textColor="#ffffff" />
+ </LinearLayout>
